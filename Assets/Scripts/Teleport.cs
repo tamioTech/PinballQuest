@@ -7,5 +7,13 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    // hint: we did teleporting in one of the early Quests.
+
+    [SerializeField] GameObject outHole;
+    [SerializeField] private float upForce = 1f;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.transform.position = outHole.transform.position;
+        collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce);
+    }
 }

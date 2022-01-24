@@ -7,5 +7,10 @@ using UnityEngine;
 
 public class SlowDown : MonoBehaviour
 {
+    [SerializeField] private float timeSpeed = 1f;
     // stop. hammer time.
+    private void Update()
+    {
+        Time.timeScale = timeSpeed;
+    }
 }
